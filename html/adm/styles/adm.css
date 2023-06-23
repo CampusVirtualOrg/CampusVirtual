@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-none;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* ESTILOS DA HEADER */
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.perfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 15pt;
+}
+
+.perfil img {
+  width: 4rem;
+  border-radius: 50%;
+}
+
+.box {
+  position: relative;
+}
+
+.box .input {
+  padding: 10px;
+  width: 70px;
+  height: 40px;
+  background: none;
+  border: 2px solid #3065ac;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 12pt;
+  color: #000000;
+  outline: none;
+  transition: 0.6s;
+}
+
+.box:hover input {
+  width: 350px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.box input:focus {
+  width: 350px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.box i {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #3065ac;
+  transition: 0.2s;
+}
+
+.box:hover i {
+  opacity: 0;
+  z-index: -1;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons i {
+  font-size: 18pt;
+  color: #3065ac;
+}
+
+/* ESTILOS DO CONTEINER DE CARDS */
+
+.content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.content .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 280px;
+  height: 100px;
+  background-color: #f2f2f2;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.card .head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card i {
+  color: #3065ac;
+  font-size: 26pt;
+}
+
+.card .card-title {
+  font-size: 16pt;
+  text-decoration: none;
+  color: #3065ac;
+  font-weight: 600;
+}
+
+.card .texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  height: 120px;
+  font-weight: 500;
+  font-size: 14pt;
+  color: #252627;
+}
+
+
+/* ESTILOS DO ASIDE LATERAL */
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 20%;
+  padding-top: 1rem;
+  background-color: #3065ac;
+}
+
+.header-aside {
+  padding: 1rem 2rem;
+}
+
+#card-center {
+  border: none;
+}
+
+#h2-aside {
+  color: #140D4F;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+#h3-aside {
+  color: #fff;
+  font-size: 18pt;
+  font-weight: 600;
+}
+
+.anchors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+
+#a-aside {
+  width: 100%;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16pt;
+  padding: 0.6rem 2rem;
+}
+
+#a-aside:focus {
+  background-color: cornflowerblue;
+  outline: none;
+}
+
+#img-aside {
+  max-width: 24px;
+}
+
+#logoAside {
+  padding: 8rem 2rem 0rem 2rem;
+}
+
+#logoAsideImg {
+  max-width: 4rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.2rem;
+  border-radius: 50%;
+}

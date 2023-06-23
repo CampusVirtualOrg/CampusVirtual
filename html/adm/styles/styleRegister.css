@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ESTILOS DA SECTION DO FORMS */
+
+section {
+  display: flex;
+  padding: 2rem 2rem;
+}
+
+form h1 {
+  font-size: 22pt;
+  color: #3065ac;
+}
+
+.background-form {
+  display: flex;
+  padding-top: 2rem;
+  gap: 2rem;
+}
+
+.background-form input {
+  width: 18rem;
+  height: 2.4rem;
+  font-size: 12pt;
+  border-radius: 8px;
+  border: 1px solid #dfdfdf;
+  padding: 0.4rem;
+  outline: none;
+}
+
+.background-form input:focus {
+  border: 2px solid #3065ac;
+  font-weight: 500;
+}
+
+.labels-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 18rem;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.buttons button {
+  width: 8rem;
+  height: 2.2rem;
+  border: none;
+  background-color: #3065ac;
+  color: #fff;
+  font-size: 12pt;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+/* ESTILOS DO ASIDE LATERAL */
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 20%;
+  padding-top: 1rem;
+  background-color: #3065ac;
+}
+
+.header-aside {
+  padding: 1rem 2rem;
+}
+
+#card-center {
+  border: none;
+}
+
+#h2-aside {
+  color: #140D4F;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+#h3-aside {
+  color: #fff;
+  font-size: 18pt;
+  font-weight: 600;
+}
+
+.anchors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+#a-aside {
+  width: 100%;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16pt;
+  padding: 0.6rem 2rem;
+}
+
+#a-aside:focus {
+  background-color: cornflowerblue;
+  outline: none;
+}
+
+#img-aside {
+  max-width: 24px;
+}
+
+#logoAside {
+  padding: 8rem 2rem 0rem 2rem;
+}
+
+#logoAsideImg {
+  max-width: 4rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.2rem;
+  border-radius: 50%;
+}
