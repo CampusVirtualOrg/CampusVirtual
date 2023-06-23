@@ -37,8 +37,8 @@
         <div class="header-section">
             <h1>Alunos</h1>
             <div class="form-procurar">
-                <input type="text" class="input" name="txt" id="procurar"/>
-                <button onclick="procurar()" type="submit" id="form-button"><i class="bi bi-search"></i></button>
+                <input type="text" class="input" name="txt" id="procurar" placeholder="Procure por nome ou email"/>
+                <button onclick="procurar()" type="submit" id="form-button""><i class="bi bi-search"></i></button>
             </div>
             <div class="filters">
                 <a href="registroAluno.php">

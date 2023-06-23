@@ -157,12 +157,12 @@ section {
   display: flex;
   align-items: center;
   width: 55%;
-  padding: 10px;
+  padding: 0.8rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 12px;
   border: none;
-  border: 2px #cccccc solid;
-  background-color: none;
+  border: 2px #dfdfdf solid;
+  background-color: #f9f9f9;
 }
 .button-section:hover {
   /* background-color: #cccccc; */
@@ -196,11 +196,14 @@ p {
   cursor: pointer;
   right: 10px;
   bottom: 0px;
-  padding: 0px 5px 0px 5px;
+  padding: 8px 10px;
   border: 2px solid #cccccc;
   border-radius: 10px;
+  transition: all 0.2s;
+  color: #252627;
 }
 .bi-chat:hover {
+  color: #3065ac;
   background-color: #e9e9e9;
 }
 .chat-icon {
