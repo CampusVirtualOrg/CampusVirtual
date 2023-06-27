@@ -12,23 +12,29 @@ $tel =   htmlspecialchars(filter_input(INPUT_POST, 'telefone'));
 $adress =  htmlspecialchars(filter_input(INPUT_POST, 'endereco'));
 $gener = filter_input(INPUT_POST, 'sexo');
 $date =  filter_input(INPUT_POST, 'data_nascimento');
-$image = $_FILES['imagem']['name']; // Recuperando o nome do arquivo da imagem
+$image = $_FILES['imagem']['name'];
 
-$caminho_temporario = $_FILES['imagem']['tmp_name']; // Obtém o caminho temporário do arquivo
+$caminho_temporario = $_FILES['imagem']['tmp_name'];
 $caminho_destino = '../uploads/' . $image;
-// Move o arquivo da pasta temporária para o destino final
+
 if (move_uploaded_file($caminho_temporario, $caminho_destino)) {
-    // Preparar a consulta
+
+    $salt = random_bytes(16);
+
+    $senhaComSalt = $password . $salt;
+
+    $hash = password_hash($senhaComSalt, PASSWORD_DEFAULT);
+
+
     $alunos = "INSERT INTO alunos (nome, email, senha, matricula, curso, semestre, cpf, telefone, endereco, sexo, data_nascimento, imagem) VALUES (:name, :email, :password, :matricula, :course, :semestre, :cpf, :tel, :adress, :gener, :date, :image)";
     $stmt = $conn->prepare($alunos);
 
-    // Vincular os valores dos parâmetros
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':password', $hash);
     $stmt->bindParam(':matricula', $matricula);
     $stmt->bindParam(':course', $course);
-    $stmt->bindParam(':semestre', $semestre);   
+    $stmt->bindParam(':semestre', $semestre);
     $stmt->bindParam(':cpf', $cpf);
     $stmt->bindParam(':tel', $tel);
     $stmt->bindParam(':adress', $adress);
