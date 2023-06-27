@@ -54,7 +54,7 @@
             <i class="bi bi-caret-down"></i>
           </button>
 
-          <a href="./index.html"><i class="bi bi-box-arrow-left fs-1"></i></a>
+          <a href="../../index.php"><i class="bi bi-box-arrow-left fs-1"></i></a>
         </div>
         <div class="select-wrapper"></div>
       </div>
@@ -80,7 +80,7 @@
         </button>
         <button class="button-section">
           <i class="bi bi-receipt img-section"></i>         
-           <a href="#">
+           <a href="boletim.php">
             <p>
               <span class="title">Boletim</span>Notas e faltas do semestre aparecerão aqui.
             </p></a
