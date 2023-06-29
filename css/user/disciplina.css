@@ -18,14 +18,15 @@ body {
   align-items: center;
 }
 
-h2 {
+h1 {
   color: #3065ac;
   font-size: 30px;
   margin-top: 15px;
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 500;
+  color: #252627;
 }
 
 h3 {

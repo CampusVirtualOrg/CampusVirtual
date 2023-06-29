@@ -1,3 +1,32 @@
+<?php
+require("../../controllers/conexao.php");
+
+$ordem = ""; // Variável para armazenar a cláusula ORDER BY
+$search = ""; # Para armazenar o texto da consulta por input;
+
+if (isset($_GET['ordem'])) {
+    if ($_GET['ordem'] == 'semestre') {
+        $ordem = "ORDER BY semestre"; // Ordenar por semestre em ordem decrescente
+    } elseif ($_GET['ordem'] == 'nome') {
+        $ordem = "ORDER BY nome"; // Ordenar por tipo de requerimento em ordem crescente
+    }
+}
+
+// Lógica da busca por input
+
+if (isset($_GET['search'])) {
+    $filter = $_GET['search'];
+    $search = "WHERE id LIKE '%$filter%' OR nome LIKE '%$filter%' OR email LIKE '%$filter%';";
+}
+
+$sql = "SELECT * FROM alunos $ordem$search;";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+$alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,8 +66,8 @@
         <div class="header-section">
             <h1>Alunos</h1>
             <div class="form-procurar">
-                <input type="text" class="input" name="txt" id="procurar" placeholder="Procure por nome ou email"/>
-                <button onclick="procurar()" type="submit" id="form-button""><i class="bi bi-search"></i></button>
+                <input type="text" class="input" name="txt" id="procurar" placeholder="Procure por nome ou email" />
+                <button onclick="procurar()" type="submit" id="form-button""><i class=" bi bi-search"></i></button>
             </div>
             <div class="filters">
                 <a href="registroAluno.php">
@@ -46,8 +75,8 @@
                 </a>
                 <span>Ordenar por:</span>
                 <div class="buttons">
-                    <button>Nome</button>
-                    <button>Curso</button>
+                    <button onclick="location.href='alunos.php?ordem=nome'">Nome</button>
+                    <button onclick="location.href='alunos.php?ordem=semestre'">Semestre</button>
                 </div>
             </div>
         </div>
@@ -59,23 +88,35 @@
                     <th>Email</th>
                     <th>Curso</th>
                     <th>Semestre</th>
+                    <th>Telefone</th>
+                    <th>Excluir</th>
                 </tr>
-                <tr>
-                    <td>texto</td>
-                    <td>texto</td>
-                    <td>texto</td>
-                    <td>texto</td>
-                    <td>texto</td>
-                </tr>
+                <?php if ($alunos) : ?>
+                    <?php foreach ($alunos as $aluno) : ?>
+                        <tr>
+                            <td><?= $aluno["nome"] ?></td>
+                            <td><?= $aluno["matricula"] ?></td>
+                            <td><?= $aluno["email"] ?></td>
+                            <td><?= $aluno["curso_id"] ?></td>
+                            <td><?= $aluno["semestre"] ?></td>
+                            <td><?= $aluno["telefone"] ?></td>
+                            <td><a href="../../controllers/deleteAluno.php?id=<?=$aluno['id']?>">Excluir</a></td>
+                        </tr>
+                    <?php endforeach ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="8">Nenhum requerimento encontrado</td>
+                    </tr>
+                <?php endif ?>
             </table>
         </div>
     </section>
 
     <script>
         var inputSearch = document.getElementById('procurar');
-        
+
         inputSearch.addEventListener("keydown", event => {
-            if(event.key === "Enter") {
+            if (event.key === "Enter") {
                 procurar();
             }
         })
@@ -85,4 +126,5 @@
         }
     </script>
 </body>
+
 </html>

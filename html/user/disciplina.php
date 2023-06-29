@@ -21,7 +21,7 @@ if (isset($_SESSION['nome']) && isset($_SESSION['curso']) && isset($_SESSION['se
 </head>
 
 <body>
-  <h2><?php echo $nome ?></h2>
+  <h1><?php echo $nome ?></h1>
   <h3>Curso: <?php echo $course ?></h3>
   <h3>Semestre: <?php echo $semestre ?></h3>
   <table>
