@@ -64,12 +64,13 @@
             </div>
             <div class="labels-inputs">
               <label for="course">Curso</label>
-              <select name="course" id="course">
-                <option value="Sistemas para Internet">Sistemas para Internet</option>
-                <option value="Administração">Administração</option>
-                <option value="Gestão de qualidade">Gestão da Qualidade</option>
-                <option value="Logística">Logística</option>
-              </select>
+              <select name="curso_id">
+  <option value="1">Sistemas para Internet</option>
+  <option value="2">Administração</option>
+  <option value="3">Gestão de Qualidade</option>
+  <option value="4">Logística</option>
+</select>
+
             </div>
           </div>
           
