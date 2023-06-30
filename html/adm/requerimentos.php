@@ -50,103 +50,138 @@
             </div>
         </div>
         <div class="main">
-            <table>
-                <tr>
-                    <th>Nome do Aluno</th>
-                    <th>Matricula</th>
-                    <th>Email</th>
-                    <th>Tipo</th>
-                    <th>Observações</th>
-                    <th>Status</th>
-                    <th>Data de Solicitação</th>
-                    <th>Excluir</th>
-                </tr>
-                <?php
-                include_once("../../controllers/conexao.php");
+        <table>
+    <tr>
+        <th>Nome do Aluno</th>
+        <th>Matricula</th>
+        <th>Email</th>
+        <th>Tipo</th>
+        <th>Observações</th>
+        <th>Status</th>
+        <th>Data de Solicitação</th>
+        <th>Atualizar Status</th>
+        <th>Excluir</th>
+    </tr>
+    <?php
+    include_once("../../controllers/conexao.php");
 
-                try {
-                    $ordem = ""; // Variável para armazenar a cláusula ORDER BY
-                    $search = ""; # Para armazenar o texto da consulta por input;
+    try {
+        $ordem = "";
+        $search = "";
 
-                    if (isset($_GET['ordem'])) {
-                        if ($_GET['ordem'] == 'data') {
-                            $ordem = "ORDER BY data_requerimento DESC"; // Ordenar por data em ordem decrescente
-                        } elseif ($_GET['ordem'] == 'tipo') {
-                            $ordem = "ORDER BY tipo_requerimento"; // Ordenar por tipo de requerimento em ordem crescente
-                        }
-                    }
+        if (isset($_GET['ordem'])) {
+            if ($_GET['ordem'] == 'data') {
+                $ordem = "ORDER BY data_requerimento DESC"; // Ordenar por data em ordem decrescente
+            } elseif ($_GET['ordem'] == 'tipo') {
+                $ordem = "ORDER BY tipo_requerimento"; // Ordenar por tipo de requerimento em ordem crescente
+            }
+        }
 
-                    // Lógica da busca por input
+        // Lógica da busca por input
 
-                    if (isset($_GET['search'])) {
-                        $filter = $_GET['search'];
-                        $search = "WHERE id LIKE '%$filter%' OR nome LIKE '%$filter%' OR email LIKE '%$filter%';";
-                    }
+        if (isset($_GET['search'])) {
+            $filter = $_GET['search'];
+            $search = "WHERE id LIKE '%$filter%' OR nome LIKE '%$filter%' OR email LIKE '%$filter%';";
+        }
 
-                    // Prepara a consulta SQL para recuperar os requerimentos
-                    $sql = "SELECT id, nome, matricula, email, tipo_requerimento, observacoes, status, data_requerimento FROM requerimentos $search$ordem";
-                    $stmt = $conn->prepare($sql);
+        // Prepara a consulta SQL para recuperar os requerimentos
+        $sql = "SELECT id, nome, matricula, email, tipo_requerimento, observacoes, status, data_requerimento FROM requerimentos $search$ordem";
+        $stmt = $conn->prepare($sql);
 
-                    // Executa a consulta
-                    $stmt->execute();
+        // Executa a consulta
+        $stmt->execute();
 
-                    // Recupera os resultados da consulta
-                    $requerimentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Recupera os resultados da consulta
+        $requerimentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    // Verifica se existem requerimentos retornados
-                    if ($requerimentos) {
-                        foreach ($requerimentos as $requerimento) {
-                            echo "<tr>";
-                            echo "<td>" . $requerimento['nome'] . "</td>";
-                            echo "<td>" . $requerimento['matricula'] . "</td>";
-                            echo "<td>" . $requerimento['email'] . "</td>";
-                            echo "<td>" . $requerimento['tipo_requerimento'] . "</td>";
-                            echo "<td>" . $requerimento['observacoes'] . "</td>";
-                            if ($requerimento['status'] === "negado") {
-                                echo "<td style='color: red; text-transform: capitalize;'>" . $requerimento['status'] . "</td>";
-                            } elseif ($requerimento['status'] === "aceito") {
-                                echo "<td style='color: green; text-transform: capitalize;'>" . $requerimento['status'] . "</td>";
-                            } else {
-                                echo "<td style='color: #8f8f00; text-transform: capitalize;'>" . $requerimento['status'] . "</td>";
-                            }
+        // Verifica se existem requerimentos retornados
+        if ($requerimentos) {
+            foreach ($requerimentos as $requerimento) {
+                echo "<tr>";
+                echo "<td>" . $requerimento['nome'] . "</td>";
+                echo "<td>" . $requerimento['matricula'] . "</td>";
+                echo "<td>" . $requerimento['email'] . "</td>";
+                echo "<td>" . $requerimento['tipo_requerimento'] . "</td>";
+                echo "<td>" . $requerimento['observacoes'] . "</td>";
 
-                            echo "<td>" . date('d/m/Y', strtotime($requerimento['data_requerimento'])) . "</td>";
-                            echo "<td><a href='../../controllers/delete.php?id=" . $requerimento['id'] . "' class='btn-delete'>Excluir</a></td>";
-                        }
-                    } else {
-                        echo "<tr>";
-                        echo "<td colspan='8'>Nenhum requerimento encontrado.</td>";
-                        echo "</tr>";
-                    }
-                } catch (PDOException $e) {
-                    echo "<tr>";
-                    echo "<td colspan='8'>Erro na execução da consulta: " . $e->getMessage() . "</td>";
-                    echo "</tr>";
+                // Adiciona a classe CSS com base no status do requerimento
+                $statusClass = '';
+                if ($requerimento['status'] === 'pendente') {
+                    $statusClass = 'status-pendente';
+                } elseif ($requerimento['status'] === 'concluido') {
+                    $statusClass = 'status-concluido';
+                } elseif ($requerimento['status'] === 'rejeitado') {
+                    $statusClass = 'status-rejeitado';
                 }
-                ?>
-            </table>
-        </div>
-        </table>
-        </div>
+                echo "<td class='status $statusClass'>"; // Adicione a classe CSS 'status' aqui
+               echo "<select id='status-select-" . $requerimento['id'] . "' class='" . $requerimento['status'] . "'>";
+echo "<option value='pendente' " . ($requerimento['status'] == 'pendente' ? 'selected' : '') . ">Pendente</option>";
+echo "<option value='concluido' " . ($requerimento['status'] == 'concluido' ? 'selected' : '') . ">Concluído</option>";
+echo "<option value='rejeitado' " . ($requerimento['status'] == 'rejeitado' ? 'selected' : '') . ">Rejeitado</option>";
+echo "</select>";
+
+                echo "</td>";
+
+                echo "<td>" . date('d/m/Y', strtotime($requerimento['data_requerimento'])) . "</td>";
+                echo "<td><button onclick=\"updateStatus(" . $requerimento['id'] . ")\">Atualizar</button></td>";
+                echo "<td><a href='../../controllers/delete.php?id=" . $requerimento['id'] . "' class='btn-delete'>Excluir</a></td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr>";
+            echo "<td colspan='8'>Nenhum requerimento encontrado.</td>";
+            echo "</tr>";
+        }
+    } catch (PDOException $e) {
+        echo "<tr>";
+        echo "<td colspan='8'>Erro na execução da consulta: " . $e->getMessage() . "</td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+
+
+</div>
+
+      
     </section>
 
 
     <script>
-        var inputSearch = document.getElementById('procurar');
+ var inputSearch = document.getElementById('procurar');
 
-        inputSearch.addEventListener('keydown', event => {
-            if (event.key === "Enter") {
-                procurar();
-            }
-        })
+inputSearch.addEventListener('keydown', event => {
+  if (event.key === "Enter") {
+    procurar();
+  }
+});
 
-        function procurar() {
-            window.location = `requerimentos.php?search=${inputSearch.value}`;
-        }
+function procurar() {
+  window.location = `requerimentos.php?search=${inputSearch.value}`;
+}
 
-        // AGORA É SÓ RECEBER NO PHP O PARAMETRO Search via get             
-        // DEPOIS FAZER A CONSULTA SQL ASSIM: 
-        // "SELECT * FROM alunos WHERE nome LIKE "%$search% OR curso LIKE "%$search%""
+function updateStatus(requerimentoId) {
+  var selectElement = document.getElementById('status-select-' + requerimentoId);
+  var novoStatus = selectElement.value;
+
+
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    
+      console.log("Status atualizado com sucesso!");
+
+      selectElement.className = novoStatus;
+    }
+  };
+
+  xhttp.open("POST", "../../controllers/atualizar_status.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("requerimento_id=" + requerimentoId + "&status=" + novoStatus);
+}
+
     </script>
 </body>
 

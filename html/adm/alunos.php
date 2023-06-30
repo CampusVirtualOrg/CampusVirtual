@@ -67,16 +67,16 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h1>Alunos</h1>
             <div class="form-procurar">
                 <input type="text" class="input" name="txt" id="procurar" placeholder="Procure por nome ou email" />
-                <button onclick="procurar()" type="submit" id="form-button""><i class=" bi bi-search"></i></button>
+                <button class="buttonsPagAluno" onclick="procurar()" type="submit" id="form-button"><i class=" bi bi-search"></i></button>
             </div>
             <div class="filters">
                 <a href="registroAluno.php">
-                    <button>+</button>
+                    <button class="buttonsPagAluno">+</button>
                 </a>
                 <span>Ordenar por:</span>
                 <div class="buttons">
-                    <button onclick="location.href='alunos.php?ordem=nome'">Nome</button>
-                    <button onclick="location.href='alunos.php?ordem=semestre'">Semestre</button>
+                    <button class="buttonsPagAluno" onclick="location.href='alunos.php?ordem=nome'">Nome</button>
+                    <button class="buttonsPagAluno" onclick="location.href='alunos.php?ordem=semestre'">Semestre</button>
                 </div>
             </div>
         </div>

@@ -1,60 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-    display: flex;
-    height: 100vh;
+  display: flex;
+  height: 100%;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* ESTILOS DA SECTION */
 
 section {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
 }
 
 .header-section span {
-    font-size: 14pt;
-
+  font-size: 14pt;
 }
 
 .header-section button {
-    padding: 0.4rem 1rem;
-    font-size: 12pt;
-    font-weight: 500;
-    color: #3065ac;
-    border: 1px solid #3065ac;
-    background: none;
-    border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 12pt;
+  font-weight: 500;
+  color: #3065ac;
+  border: 1px solid #3065ac;
+  background: none;
+  border-radius: 6px;
 }
 
 .header-section button:focus {
-    background-color: #3065ac;
-    color: #fff;
+  background-color: #3065ac;
+  color: #fff;
 }
 
 .filters {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .form-procurar input {
@@ -68,104 +67,108 @@ section {
 }
 
 #form-button {
-    border: 2px solid #3065ac;
+  border: 2px solid #3065ac;
 }
 
-
 section h1 {
-    color: #3065ac;
-    font-size: 22pt;
+  color: #3065ac;
+  font-size: 22pt;
 }
 
 table {
-    width: 75vw;
-    border: 1px solid #000;
-    border-collapse: collapse;
-    margin-top: 4rem;
+  width: 75vw;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  margin-top: 4rem;
 }
 
 tr,
 td,
 th {
-    border: 1px solid black;
-    text-align: center;
-    padding: 0.4rem;
+  border: 1px solid black;
+  text-align: center;
+  padding: 0.4rem;
 }
 
 th {
-    padding: 1rem;
-    background-color: #3065ac;
-    color: #ffffff;
-    font-size: 14pt;
+  padding: 1rem;
+  background-color: #3065ac;
+  color: #ffffff;
+  font-size: 14pt;
 }
-
-
 
 /* ESTILOS DO ASIDE LATERAL */
 
 aside {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 20%;
-    padding-top: 1rem;
-    background-color: #3065ac;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 20%;
+  padding-top: 1rem;
+  background-color: #3065ac;
 }
 
 .header-aside {
-    padding: 1rem 2rem;
+  padding: 1rem 2rem;
 }
 
 #card-center {
-    border: none;
+  border: none;
 }
 
 #h2-aside {
-    color: #140D4F;
-    font-size: 14pt;
-    font-weight: 600;
+  color: #140d4f;
+  font-size: 14pt;
+  font-weight: 600;
 }
 
 #h3-aside {
-    color: #fff;
-    font-size: 18pt;
-    font-weight: 600;
+  color: #fff;
+  font-size: 18pt;
+  font-weight: 600;
 }
-
+.buttonsPagAluno {
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.3s;
+}
+.buttonsPagAluno:hover {
+  background-color: #ffff16;
+}
 .anchors {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
 }
 
 #a-aside {
-    width: 100%;
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-    color: #fff;
-    font-weight: 500;
-    font-size: 16pt;
-    padding: 0.6rem 2rem;
+  width: 100%;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16pt;
+  padding: 0.6rem 2rem;
 }
 
 #a-aside:focus {
-    background-color: cornflowerblue;
-    outline: none;
+  background-color: cornflowerblue;
+  outline: none;
 }
 
 #img-aside {
-    max-width: 24px;
+  max-width: 24px;
 }
 
 #logoAside {
-    padding: 8rem 2rem 0rem 2rem;
+  padding: 8rem 2rem 0rem 2rem;
 }
 
 #logoAsideImg {
-    max-width: 4rem;
-    background-color: rgb(255, 255, 255);
-    padding: 0.2rem;
-    border-radius: 50%;
+  max-width: 4rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.2rem;
+  border-radius: 50%;
 }

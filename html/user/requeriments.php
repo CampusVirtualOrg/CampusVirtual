@@ -126,7 +126,7 @@ if (isset($_SESSION['nome']) && isset($_SESSION['matricula']) && isset($_SESSION
       </div>
     </form>
   </div>
-  <script src="../js/requerimentos.js"></script>
+  <!-- <script src="../js/requerimentos.js"></script> -->
 </body>
 
 </html>
