@@ -142,3 +142,17 @@ aside {
   padding: 0.2rem;
   border-radius: 50%;
 }
+
+@media screen and (max-width: 532px) {
+  aside {
+    display: none;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .background-form {
+    flex-direction: column;
+  }
+}

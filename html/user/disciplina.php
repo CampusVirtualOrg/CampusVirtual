@@ -22,6 +22,7 @@ if (isset($_SESSION['nome']) && isset($_SESSION['curso']) && isset($_SESSION['se
 
 <body>
   <h1><?php echo $nome ?></h1>
+  <h2>Veja as Disciplinas do seu curso!</h2>
   <h3>Curso: <?php echo $course ?></h3>
   <h3>Semestre: <?php echo $semestre ?></h3>
   <table>

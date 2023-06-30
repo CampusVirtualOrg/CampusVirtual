@@ -14,6 +14,18 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.titles {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #3065ac;
+}
+
+.titles {
+  font-size: 2.2rem;
+}
+
 .container-form {
   display: flex;
   flex-direction: column;
@@ -56,7 +68,9 @@ textarea {
   padding: 0.4rem;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border: 2px solid #3065ac;
 }
@@ -79,4 +93,20 @@ input:focus, textarea:focus, select:focus {
   display: flex;
   justify-content: center;
   /* background-color: #3065ac; */
+}
+
+@media screen and (max-width: 468px) {
+  .titles {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 324px) {
+  input, select, textarea {
+    width: 100%;
+  }
+
+  form {
+    padding: 1rem
+  }
 }

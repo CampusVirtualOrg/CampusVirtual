@@ -59,3 +59,62 @@ th {
 .last-column {
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 468px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  tr,
+  td,
+  th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.4em;
+    font-size: 10pt;
+  }
+  
+  th {
+    padding: 0.2rem;
+    background-color: #3065ac;
+    color: #ffffff;
+    font-size: 12pt;
+  }
+}
+
+@media screen and (max-width: 324px) {
+  h1 {
+    font-size: 22px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+
+  table {
+    width: 70vw;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+  }
+  
+  tr,
+  td,
+  th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.1em;
+    font-size: 8pt;
+  }
+  
+  th {
+    padding: 0.2rem;
+    background-color: #3065ac;
+    color: #ffffff;
+    font-size: 10pt;
+  }
+}

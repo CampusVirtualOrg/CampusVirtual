@@ -74,7 +74,8 @@ if (isset($_SESSION['nome']) && isset($_SESSION['curso']) && isset($_SESSION['se
       margin-top: 2rem;
     }
 
-    .avisoDiv, .titleDiv {
+    .avisoDiv,
+    .titleDiv {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -83,12 +84,30 @@ if (isset($_SESSION['nome']) && isset($_SESSION['curso']) && isset($_SESSION['se
     label {
       font-size: 14pt;
     }
-    
+
+    @media screen and (max-width: 468px) {
+      form {
+        align-items: center;
+      }
+      input,
+      select {
+        width: 18rem;
+        height: 2.4rem;
+        font-size: 12pt;
+        border: 2px solid #dfdfdf;
+        padding: 0.4rem;
+      }
+
+      textarea {
+        width: 280px;
+        height: 160px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <h1>Olá <?= $nome  ?>Nome</h1>
+  <h1>Olá, <?= $nome ?></h1>
   <h2>Mande seus avisos!</h2>
   <form action="#">
     <div class="titleDiv">

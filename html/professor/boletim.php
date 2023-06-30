@@ -24,7 +24,7 @@ $mediaFinal2 = 8.9;
 </head>
 
 <body>
-  <h1>Olá<?php echo $nome ?></h1>
+  <h1>Olá, <?php echo $nome ?></h1>
   <h2>Atualize as notas e médias dos seus alunos.</h2>
 </body>
 

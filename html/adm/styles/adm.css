@@ -221,3 +221,30 @@ aside {
   padding: 0.2rem;
   border-radius: 50%;
 }
+
+@media screen and (max-width: 532px) {
+  aside {
+    display: none;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .header-section .box {
+    display: none;
+  }
+
+  .header-section p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    justify-content: center;
+  }
+
+  .content .card {
+    width: 80%;
+  }
+}

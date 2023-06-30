@@ -188,3 +188,46 @@ select {
 .rejeitado {
   background-color: rgb(255, 47, 47);
 }
+
+@media screen and (max-width: 532px) {
+  aside {
+    display: none;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .header-section {
+    flex-direction: column;
+    padding-right: 0;
+    justify-content: center;
+    align-items: start;
+    gap: 0.8rem;
+  }
+
+  .header-section input {
+    width: 14rem;
+  }
+
+  .header-section .filters {
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  tr,
+  td,
+  th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.1rem;
+    font-size: 11pt;
+  }
+  
+  th {
+    padding: 1px;
+    background-color: #3065ac;
+    color: #ffffff;
+    font-size: 12pt;
+  }
+}

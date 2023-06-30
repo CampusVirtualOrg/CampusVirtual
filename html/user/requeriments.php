@@ -28,8 +28,8 @@ if (isset($_SESSION['nome']) && isset($_SESSION['matricula']) && isset($_SESSION
 
 <body>
   <div style="height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 1rem;">
-    <div style="display: flex; align-items: center; gap: 0.4rem;">
-      <h1 style="font-size: 2.2rem; font-weight: 600; color: #3065ac;">Faça seu Requerimento</h1>
+    <div class="titles">
+      Faça seu Requerimento
       <i style="color: #3065ac; font-size: 2rem;" class="bi bi-file-earmark-text-fill"></i>
     </div>
     
