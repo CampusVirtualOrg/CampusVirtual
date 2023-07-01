@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
   $id = $_GET['id'];
 
   try {
-    // Prepara a consulta SQL para excluir o requerimento com base no ID
+    // Prepara a consulta SQL para excluir o aluno com base no ID
     $sql = "DELETE FROM alunos WHERE id = :id";
     $stmt = $conn->prepare($sql);
 

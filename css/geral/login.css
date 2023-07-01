@@ -78,8 +78,31 @@ body {
   padding-left: 3rem;
 }
 
+.title {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error {
+  background-color: #fbf2f2;
+  border: 2px solid #aa0505;
+  padding: 0.4rem;
+  border-radius: 8px;
+}
+
+.error span {
+  display: flex;
+  gap: 0.3rem;
+  font-size: 11pt;
+  font-weight: 500;
+  color: #aa0505;
+}
+
 h1 {
   color: #3065ac;
+  font-weight: 600;
 }
 
 form {
@@ -220,6 +243,7 @@ input:focus {
     align-items: center;
     margin-right: 4rem;
   }
+
   span {
     color: #252627;
     font-weight: 400;

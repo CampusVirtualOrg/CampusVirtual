@@ -10,6 +10,8 @@
   <link rel="shortcut icon" href="/img/logoPortal.png" type="image/x-icon" />
   <!-- Link css -->
   <link rel="stylesheet" href="../css/geral/login.css" />
+  <!-- icons bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 </head>
 
 <body>
@@ -31,17 +33,22 @@
     <div class="container-right">
       <div class="title">
         <h1>Login</h1>
+        <?php if (isset($_GET['err'])) : ?>
+          <div class="error">
+            <span><i class="bi bi-exclamation-octagon-fill"></i><?= $_GET['err'] ?></span>
+          </div>
+        <?php endif ?>
       </div>
       <div class="forms">
         <form id="form" action="../controllers/autenticacao.php" method="post">
           <div class="login-conjunt">
-            <label for="login">Login</label>
-            <input type="email" id="login" name="email" placeholder="Digite seu e-mail" />
+            <label for="login">Email</label>
+            <input type="email" id="login" name="email" placeholder="Digite seu e-mail" required />
           </div>
           <div class="password-conjunt">
             <div class="password-subconjunt">
               <label for="password">Senha</label>
-              <input type="password" id="password" name="password" placeholder="Digite sua senha" />
+              <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
             </div>
             <div class="esqueceu-password">
               <a href="" id="esq-password">Esqueceu a senha?</a>

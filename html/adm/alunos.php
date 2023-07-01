@@ -34,6 +34,8 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/alunos.css">
+    <!-- link favicon -->
+    <link rel="shortcut icon" href="../../img/logoPortal.png" type="image/x-icon" />
     <!-- icons bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <title>Alunos</title>
@@ -80,6 +82,32 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
+        <!-- <div class="testeDialog">
+            <dialog id="dialogMain">
+                <form action="">
+                    <input type="email" placeholder="Novo Email">
+                    <input type="password" placeholder="Novo Email">
+                    <button>Atualizar</button>
+                    <button type="reset" id="fecharBtn">Cancelar</button>
+                </form>
+            </dialog>
+
+            <button id="meuBtn">abrirDialogo</button>
+        </div>
+
+        <script>
+            var meuModal = document.getElementById('dialogMain');
+            var btnModal = document.getElementById('meuBtn');
+            var btnCancel = document.getElementById('fecharBtn');
+
+            btnModal.addEventListener('click', () => {
+                meuModal.showModal();
+            })
+
+            btnCancel.addEventListener('click', () => {
+                meuModal.close()
+            })
+        </script> -->
         <div class="main">
             <table>
                 <tr>
@@ -100,7 +128,7 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= $aluno["curso_id"] ?></td>
                             <td><?= $aluno["semestre"] ?></td>
                             <td><?= $aluno["telefone"] ?></td>
-                            <td><a href="../../controllers/deleteAluno.php?id=<?=$aluno['id']?>">Excluir</a></td>
+                            <td><a href="../../controllers/deleteAluno.php?id=<?= $aluno['id'] ?>">Excluir</a></td>
                         </tr>
                     <?php endforeach ?>
                 <?php else : ?>

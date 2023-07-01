@@ -77,7 +77,7 @@ if ($admin) {
     }
      else {
         // Autenticação falhou, redirecionar para uma página de erro ou exibir uma mensagem de erro
-        header("Location: erro_autenticacao.php");
+        header("Location: ../html/login.php?err=Email ou senha errados!");
         exit();
     }
 }
