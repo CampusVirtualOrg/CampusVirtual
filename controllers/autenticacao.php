@@ -12,7 +12,7 @@ $stmt->execute();
 
 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($admin) {
+if ($admin ) {
     // Autenticação bem-sucedida para o administrador, armazenar o nome do administrador na sessão
     session_start();
     $_SESSION['nome'] = $admin['nome'];

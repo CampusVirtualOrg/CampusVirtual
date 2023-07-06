@@ -44,7 +44,6 @@ if (move_uploaded_file($caminho_temporario, $caminho_destino)) {
     // Obter o ID do aluno recém-inserido
     $aluno_id = $conn->lastInsertId();
 
-    // Consultar a tabela "cursos_disciplinas" para obter as disciplinas do curso do aluno
     $stmt = $conn->prepare("SELECT disciplina_id FROM curso_disciplinas WHERE curso_id = :curso_id");
     $stmt->bindParam(':curso_id', $curso_id);
     $stmt->execute();

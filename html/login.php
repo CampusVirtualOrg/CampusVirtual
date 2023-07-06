@@ -41,7 +41,7 @@
           <div class="password-conjunt">
             <div class="password-subconjunt">
               <label for="password">Senha</label>
-              <input type="password" id="password" name="password" placeholder="Digite sua senha" />
+              <input type="password" id="password" name="passwd" placeholder="Digite sua senha" />
             </div>
             <div class="esqueceu-password">
               <a href="" id="esq-password">Esqueceu a senha?</a>
