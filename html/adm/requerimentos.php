@@ -166,8 +166,7 @@
         function updateStatus(requerimentoId) {
             var selectElement = document.getElementById('status-select-' + requerimentoId);
             var novoStatus = selectElement.value;
-
-
+            var mensagem = `Seu requerimento foi atualizado para ${novoStatus}`;
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function() {
@@ -176,12 +175,13 @@
                     console.log("Status atualizado com sucesso!");
 
                     selectElement.className = novoStatus;
+
                 }
             };
 
             xhttp.open("POST", "../../controllers/atualizar_status.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("requerimento_id=" + requerimentoId + "&status=" + novoStatus);
+            xhttp.send("requerimento_id=" + requerimentoId + "&status=" + novoStatus + "&mensagem=" + mensagem);
         }
     </script>
 </body>
