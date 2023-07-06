@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrador</title>
     <!-- link favicon -->
-    <link rel="shortcut icon" href="./img/logoPortal.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../img/logoPortal.png" type="image/x-icon" />
     <!-- link css -->
     <link rel="stylesheet" href="./styles/adm.css" />
     <!-- icons bootstrap -->

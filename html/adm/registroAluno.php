@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="../img/logoPortal.png" type="image/x-icon" />
     <link rel="shortcut icon" href="../../img/logoPortal.png" type="image/x-icon">
     <link rel="stylesheet" href="./styles/styleRegister.css">
+    <!-- link favicon -->
+    <link rel="shortcut icon" href="../../img/logoPortal.png" type="image/x-icon" />
     <!-- icons bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   </head>
