@@ -48,22 +48,28 @@
           </div>
           <div class="password-conjunt">
             <div class="password-subconjunt">
+<<<<<<< HEAD
        
 
 
 <div class="password-conjunt">
   <div class="password-subconjunt">
+<<<<<<< HEAD
     <label for="password">Senha</label>
     <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
   </div>
-  
+=======
+    <label for="password">Senha</label>
+    <input type="password" id="password" name="passwd" placeholder="Digite sua senha" />
+    <div class="esqueceu-password">
+      <a href="" id="esq-password">Esqueceu a senha?</a>
+    </div>
+  </div>
+>>>>>>> refs/remotes/origin/main
 
+>>>>>>> refs/remotes/origin/main
             </div>
-            <div class="esqueceu-password">
-              <a href="" id="esq-password">Esqueceu a senha?</a>
-            </div>
-          </div>
-          <input type="submit" id="form" class="entrance" value="Entrar">
+            <input type="submit" id="form" class="entrance" value="Entrar">
         </form>
       </div>
 

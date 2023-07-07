@@ -35,6 +35,7 @@ if ($admin ) {
         // Autenticação bem-sucedida para o aluno, armazenar os dados do aluno na sessão
         session_start();
         $_SESSION['nome'] = $aluno['nome'];
+        $_SESSION['idAluno'] = $aluno['id'];
         $_SESSION['imagem'] = $aluno['imagem'];
         $_SESSION['matricula'] = $aluno['matricula'];
         $_SESSION['email'] = $aluno['email'];
