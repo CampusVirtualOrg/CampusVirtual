@@ -52,24 +52,37 @@ $notificacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <i class="bi bi-search"></i>
     </div>
     <div class="buttons">
-      <i class="bi bi-bell-fill notification-icon" id="notBtn"></i>
-      <div class="notDad" id="notDad">
-        <div class="notifications" id="notifications">
-          <div class="notHeader">
-            <span>Notificações</span>
-          </div>
-          <?php foreach ($notificacoes as $notificacao) : ?>
-            <div class="notCard">
-              <i class="bi bi-pencil-square img-section"></i>
-              <?php if($notificacao['status_requerimento'] == "concluido"): ?>
-              <span style="color: green;"><?= $notificacao['mensagem'] ?></span>
-              <?php elseif($notificacao['status_requerimento'] == "rejeitado"): ?>
-              <span style="color: red;"><?= $notificacao['mensagem'] ?></span>
-              <?php elseif($notificacao['status_requerimento'] == "pendente"): ?>
-              <span style="color: yellow;"><?= $notificacao['mensagem'] ?></span>
-              <?php endif?>
+      <div class="notfications-sect">
+        <i class="bi bi-bell-fill notification-icon" id="notBtn"></i>
+        <div class="notDad" id="notDad">
+          <div class="notifications" id="notifications">
+            <div class="notHeader">
+              <span>Notificações</span>
+              <a href="../../controllers/delete_notificacao.php?id=<?= $id ?>">LIMPAR TODAS</a>
             </div>
-          <?php endforeach ?>
+            <?php foreach ($notificacoes as $notificacao) : ?>
+              <div class="notCard">
+                <div class="notMessage">
+
+                  <i class="bi bi-pencil-square img-section"></i>
+
+                  <?php if ($notificacao['status_requerimento'] == "concluido") : ?>
+                    <span><?= $notificacao['mensagem'] ?> <span class="bolders" style="color: green;"><?= $notificacao['status_requerimento'] ?>.</span>
+                    </span>
+
+                  <?php elseif ($notificacao['status_requerimento'] == "rejeitado") : ?>
+                    <span><?= $notificacao['mensagem'] ?> <span class="bolders" style="color: red;"><?= $notificacao['status_requerimento'] ?>.</span>
+                    </span>
+
+                  <?php elseif ($notificacao['status_requerimento'] == "pendente") : ?>
+                    <span><?= $notificacao['mensagem'] ?> <span class="bolders" style="color: yellow;"><?= $notificacao['status_requerimento'] ?>.</span>
+                    </span>
+                  <?php endif ?>
+                </div>
+                <a href="../../controllers/delete_notificacao.php?id=<?= $id ?>&notId=<?= $notificacao['id'] ?>">LIMPAR</a>
+              </div>
+            <?php endforeach ?>
+          </div>
         </div>
       </div>
 
@@ -131,20 +144,24 @@ $notificacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <script>
     var buttonToggle = document.getElementById('notBtn');
     var notifications = document.getElementById('notDad');
-    
-    buttonToggle.addEventListener('click', ()=>{
+
+    buttonToggle.addEventListener('click', () => {
       notifications.style.display = 'block';
     })
-    
+
+    buttonToggle.addEventListener('dblclick', ()=>{
+      notifications.style.display = 'none';
+    })
+
     // Tentei fazer ficar visivel de acordo com isso abaixo mas não foi
-    
+
     // let visible = false;
 
     // buttonToggle.addEventListener('click', ()=>{
     //   visible = !visible;
     //   console.log(visible)
     // })
-    
+
     // if (visible == true) {
     //   notifications.style.display = 'block';
     // }

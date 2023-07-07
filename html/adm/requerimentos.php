@@ -166,7 +166,7 @@
         function updateStatus(requerimentoId) {
             var selectElement = document.getElementById('status-select-' + requerimentoId);
             var novoStatus = selectElement.value;
-            var mensagem = `Seu requerimento foi atualizado para ${novoStatus}`;
+            var mensagem = `Seu requerimento foi atualizado para `;
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function() {
