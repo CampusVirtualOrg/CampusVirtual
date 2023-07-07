@@ -15,4 +15,20 @@ function handleFormSubmit(event) {
 updateLogo();
 
 // adiciona o evento de redimensionamento para atualizar a imagem
-window.addEventListener("resize", updateLogo);
+window.addEventListener("DOMContentLoaded", function () {
+  const loginLink = document.querySelector(
+    'link[href="../css/geral/login.css"]'
+  );
+  const mode = getCookie("mode");
+
+  if (mode === "dark") {
+    loginLink.href = "../css/darkMode/login.css";
+  }
+});
+
+function getCookie(name) {
+  const cookieValue = document.cookie.match(
+    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+  );
+  return cookieValue ? cookieValue.pop() : "";
+}

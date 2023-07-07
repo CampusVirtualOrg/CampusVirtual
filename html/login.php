@@ -9,7 +9,8 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="/img/logoPortal.png" type="image/x-icon" />
   <!-- Link css -->
-  <link rel="stylesheet" href="../css/geral/login.css" />
+  <link id="loginStyle" rel="stylesheet" href="../css/geral/login.css" />
+  <!-- <link rel="stylesheet" href="../css/darkMode/login.css" /> -->
   <!-- icons bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 </head>
@@ -47,24 +48,16 @@
           </div>
           <div class="password-conjunt">
             <div class="password-subconjunt">
-              <label for="password">Senha</label>
-<<<<<<< HEAD
-              <input type="password" id="password" name="passwd" placeholder="Digite sua senha" />
-=======
-              <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+       
+
+
 <div class="password-conjunt">
   <div class="password-subconjunt">
     <label for="password">Senha</label>
-<<<<<<< HEAD
-    <input type="password" id="password" name="passwd" placeholder="Digite sua senha" />
-=======
     <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
->>>>>>> refs/remotes/origin/main
   </div>
-  <div class="esqueceu-password">
-    <a href="" id="esq-password">Esqueceu a senha?</a>
-  </div>
->>>>>>> refs/remotes/origin/main
+  
+
             </div>
             <div class="esqueceu-password">
               <a href="" id="esq-password">Esqueceu a senha?</a>

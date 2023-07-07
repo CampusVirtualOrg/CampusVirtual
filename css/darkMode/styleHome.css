@@ -5,13 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
-}
-
-body {
-  background-image: url("../../img/background.svg");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  height: 100vh;
+  background-color: #1c1c1c;
 }
 
 /* Header, Nav */
@@ -75,9 +69,10 @@ label img {
   width: 2rem;
   top: 0.5rem;
   z-index: 100;
+  background-color: transparent;
 }
 label .sun {
-  left: 0.5rem;
+  left: 0.6rem;
   margin-bottom: 1rem;
   fill: #fff;
   transition: 0.3s;
@@ -96,6 +91,7 @@ input:checked + label .moon {
 .text-nav {
   text-decoration: none;
   transition: 0.2s;
+  color: #fff;
 }
 
 .text-nav:hover {
@@ -123,6 +119,7 @@ input:checked + label .moon {
 .section-main {
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 .container-fluid {
@@ -155,12 +152,13 @@ input:checked + label .moon {
 }
 
 .text-h2-section {
-  color: #252627;
+  color: #fff;
   font-size: 36px;
 }
 
 .text-h2-section span {
   font-size: 40px;
+  color: #fff;
 }
 
 .paragraph-section {
@@ -214,12 +212,19 @@ footer {
 .itens-footer {
   display: flex;
   align-items: center;
+  background-color: #fff;
 }
-
+.itens-footer > span {
+  background-color: #fff;
+}
+.bi-github {
+  background-color: #fff;
+}
 footer a {
   text-decoration: none;
   color: #000;
   transition: 0.2s;
+  background-color: #fff;
 }
 
 footer a:hover {
