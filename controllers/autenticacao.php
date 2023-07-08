@@ -12,7 +12,7 @@ $stmt->execute();
 
 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($admin ) {
+if ($admin) {
     // Autenticação bem-sucedida para o administrador, armazenar o nome do administrador na sessão
     session_start();
     $_SESSION['nome'] = $admin['nome'];
@@ -41,7 +41,7 @@ if ($admin ) {
         $_SESSION['email'] = $aluno['email'];
         $_SESSION['cpf'] = $aluno['cpf'];
         $_SESSION['semestre'] = $aluno['semestre'];
-    
+
         // Consulta para obter o nome do curso do aluno
         $query_curso = "SELECT c.nome AS nome_curso
                         FROM curso c
@@ -51,13 +51,13 @@ if ($admin ) {
         $stmt_curso->bindParam(':aluno_id', $aluno['id']);
         $stmt_curso->execute();
         $curso = $stmt_curso->fetch(PDO::FETCH_ASSOC);
-    
+
         if ($curso) {
             $_SESSION['curso'] = $curso['nome_curso'];
         } else {
             $_SESSION['curso'] = 'Curso desconhecido';
         }
-    
+
         // Consulta para obter as disciplinas do aluno
         $query_disciplinas = "SELECT d.nome AS nome_disciplina, d.codigo, d.carga_horaria
                               FROM alunos a
@@ -68,18 +68,36 @@ if ($admin ) {
         $stmt_disciplinas->bindParam(':nome', $aluno['nome']);
         $stmt_disciplinas->execute();
         $disciplinas = $stmt_disciplinas->fetchAll(PDO::FETCH_ASSOC);
-    
+
         // Armazenar as disciplinas do aluno na sessão
         $_SESSION['disciplinas'] = $disciplinas;
-    
+
         // Redirecionar para a página do aluno
         header("Location: ../html/user/user.php");
         exit();
-    }
-     else {
-        // Autenticação falhou, redirecionar para uma página de erro ou exibir uma mensagem de erro
-        header("Location: ../html/login.php?err=Email ou senha errados!");
-        exit();
+    } else {
+        // Verificar se é um professor
+        $query = "SELECT * FROM professor WHERE email = :email";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        $professor = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($professor) {
+            // Autenticação bem-sucedida para o professor, armazenar o nome do professor na sessão
+            session_start();
+            $_SESSION['nome'] = $professor['nome'];
+            $_SESSION['imagem'] = $professor['imagem'];
+            $_SESSION['email'] = $professor['email'];
+
+            // Redirecionar para a página do professor
+            header("Location: ../html/professor/");
+            exit();
+        } else {
+            // Autenticação falhou, redirecionar para uma página de erro ou exibir uma mensagem de erro
+            header("Location: ../html/login.php?err=Email ou senha errados!");
+            exit();
+        }
     }
 }
-?>

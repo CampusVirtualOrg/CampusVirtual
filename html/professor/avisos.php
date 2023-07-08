@@ -1,10 +1,9 @@
 <?php
 include_once("../../controllers/conexao.php");
 session_start();
-if (isset($_SESSION['nome']) && isset($_SESSION['curso']) && isset($_SESSION['semestre'])) {
+if (isset($_SESSION['nome']) && isset($_SESSION['email'])) {
   $nome = $_SESSION['nome'];
-  $course = $_SESSION['curso'];
-  $semestre = $_SESSION['semestre'];
+  $email = $_SESSION['email'];
 }
 
 ?>
@@ -107,12 +106,13 @@ if (isset($_SESSION['nome']) && isset($_SESSION['curso']) && isset($_SESSION['se
 </head>
 
 <body>
-  <h1>Olá, <?= $nome ?></h1>
+  <h1>Olá, <?= $nome ?>!</h1>
   <h2>Mande seus avisos!</h2>
-  <form action="#">
+  <form action="../../controllers/mandarAvisos.php" method="post">
+    <input type="text" name="remetente" value="<?php echo "$nome ($email)" ?>" hidden>
     <div class="titleDiv">
       <label for="title">Titulo do Aviso:</label>
-      <input type="text" name="title">
+      <input type="text" name="titulo">
     </div>
     <div class="avisoDiv">
       <label for="aviso">Aviso:</label>

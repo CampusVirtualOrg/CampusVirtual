@@ -98,7 +98,7 @@ $notificacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <section>
     <button class="button-section">
       <i class="bi bi-app-indicator img-section"></i>
-      <a href="#">
+      <a href="./avisos.php">
         <p>
           <span class="title">Avisos</span>Veja aqui os avisos mais recentes publicados
           pelos professores.

@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-image: url("../../img/background.svg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+}
+
+h1 {
+    color: #3065ac;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 16pt;
+    color: #252627;
+}
+
+h3 {
+    color: #3065ac;
+    font-weight: 600;
+    font-size: 16pt;
+}
+
+.header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: 2px solid #dfdfdf;
+    border-radius: 8px;
+    width: 70%;
+    height: max-content;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.cardHeader span {
+    color: #747a80;
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+.cardContent p {
+    font-size: 14pt;
+}
+
+
+@media screen and (max-width: 678px) {
+
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 18pt;
+    }
+
+    h2 {
+        font-size: 16pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+    }
+
+    .card {
+        width: 95%;
+    }
+
+    .cardHeader {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .cardHeader span {
+        font-size: 12pt;
+    }
+
+    .cardContent p {
+        font-size: 13pt;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    h3 {
+        font-size: 12pt;
+    }
+
+    .cardHeader span {
+        font-size: 11pt;
+    }
+
+    .cardContent p {
+        font-size: 12pt;
+    }
+}
