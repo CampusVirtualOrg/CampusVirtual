@@ -15,4 +15,4 @@ Usamos as seguintes tecnologias:
 
 ⚠️ O projeto não está totalmente completo, mas pretendemos continuar trabalhando nele.
 
-<a href="jamerson.shop">Acesse a nossa aplicação aqui</a> 
+<a href="http://jamerson.shop">Acesse a nossa aplicação aqui</a> 
